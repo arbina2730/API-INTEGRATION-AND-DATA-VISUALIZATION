@@ -10,4 +10,4 @@
 *MENTOR*: NEELA SANTHOSH
 
 *OUTPUT*:
-<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/970d5439-d3a0-4105-8b7f-b50b48d89682" />
+<img width="338" height="631" alt="Image" src="https://github.com/user-attachments/assets/530c81ec-7ea3-4c85-8030-d3a18207ce67" />
