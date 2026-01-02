@@ -1,0 +1,48 @@
+# ================================
+# API INTEGRATION & DATA VISUALIZATION
+# ================================
+
+import requests
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# -------------------------------
+# 1. API INTEGRATION
+# -------------------------------
+API_URL = "https://api.coindesk.com/v1/bpi/historical/close.json"
+
+response = requests.get(API_URL)
+
+if response.status_code != 200:
+    raise Exception("Failed to fetch data from API")
+
+data = response.json()
+
+# -------------------------------
+# 2. DATA PROCESSING
+# -------------------------------
+prices = data["bpi"]
+
+df = pd.DataFrame(
+    list(prices.items()),
+    columns=["Date", "Bitcoin_Price"]
+)
+
+df["Date"] = pd.to_datetime(df["Date"])
+
+# -------------------------------
+# 3. DATA VISUALIZATION
+# -------------------------------
+plt.figure()
+plt.plot(df["Date"], df["Bitcoin_Price"])
+plt.xlabel("Date")
+plt.ylabel("Price (USD)")
+plt.title("Bitcoin Price Over Time")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# -------------------------------
+# 4. OUTPUT SAMPLE DATA
+# -------------------------------
+print(df.head())
